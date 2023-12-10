@@ -32,7 +32,6 @@ export default function Screen(props){
                   opacity: "0",
                   display: "none",
                   marginTop: props.himt,
-                  marginRight: "20px",
                 }}
               >
                 Hi !
