@@ -1,95 +1,221 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client";
+
+import "../styles/styles.css";
+import Container from "react-bootstrap/Container";
+import { gsap } from "gsap";
+import { useLayoutEffect, useRef } from "react";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import CodeOutlinedIcon from "@mui/icons-material/CodeOutlined";
+import WebAssetOutlinedIcon from "@mui/icons-material/WebAssetOutlined";
+
+import Screen from "./components/screen";
 
 export default function Home() {
+  const comp1 = useRef(null);
+  const comp2 = useRef(null);
+  const comp3 = useRef(null);
+
+  useLayoutEffect(() => {
+    let ctx = gsap.context(() => {
+      var tl1 = gsap.timeline();
+      tl1
+        .to("#back", { backgroundColor: "white", duration: 2 })
+        .to("#hi", {
+          color: "black",
+          opacity: 1,
+          display: "block",
+          duration: 2,
+        })
+        .to("#hi", {
+          opacity: 0,
+          duration: 1,
+          display: "none",
+        })
+        .to(["#name", "#desc", "#me"], {
+          delay: 0.5,
+          color: "black",
+          opacity: 1,
+          display: "block",
+        })
+        .to(["#name", "#desc", "#me"], {
+          y: -80,
+          delay: 0.5,
+        })
+        .to("#buttns", {
+          opacity: 1,
+          display: "flex",
+        });
+    }, comp1);
+
+    return () => ctx.revert();
+  }, []);
+  useLayoutEffect(() => {
+    let ctx2 = gsap.context(() => {
+      var tl2 = gsap.timeline();
+      tl2
+        .to("#back", { backgroundColor: "white", duration: 2 })
+        .to("#hi", {
+          color: "black",
+          opacity: 1,
+          display: "block",
+          duration: 2,
+        })
+        .to("#hi", {
+          opacity: 0,
+          duration: 1,
+          display: "none",
+        })
+        .to(["#name", "#desc", "#me"], {
+          delay: 0.5,
+          color: "black",
+          opacity: 1,
+          display: "block",
+        })
+        .to(["#name", "#desc", "#me"], {
+          y: -80,
+          delay: 0.5,
+        })
+        .to("#buttns", {
+          opacity: 1,
+          display: "flex",
+        });
+    }, comp2);
+    return () => ctx2.revert();
+  }, []);
+
+  useLayoutEffect(() => {
+    let ctx3 = gsap.context(() => {
+      var tl3 = gsap.timeline();
+      tl3
+        .to("#back", { backgroundColor: "white", duration: 2 })
+        .to("#hi", {
+          color: "black",
+          opacity: 1,
+          display: "block",
+          duration: 2,
+        })
+        .to("#hi", {
+          opacity: 0,
+          duration: 1,
+          display: "none",
+        })
+        .to(["#name", "#desc", "#me"], {
+          delay: 0.5,
+          color: "black",
+          opacity: 1,
+          display: "block",
+        })
+        .to(["#name", "#desc", "#me"], {
+          y: -30,
+          delay: 0.5,
+        })
+        .to("#buttns", {
+          opacity: 1,
+          display: "flex",
+        });
+    }, comp3);
+
+    return () => ctx3.revert();
+  }, []);
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
+    <>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "black",
+          height: "100vh",
+        }}
+      >
+        <Container
+          ref={comp1}
+          className="d-none d-xl-block"
+          style={{
+            backgroundImage: "url(/result.png)",
+            height: "600px",
+            width: "900px",
+          }}
+        >
+          <Screen
+            height={"485px"}
+            width={"868px"}
+            himt={"180px"}
+            contmt={"15px"}
+            divmt={"110px"}
+            imgHeight={"200px"}
+            imgWidth={"200px"}
+            fontsize={"38px"}
+            btnmt={"30px"}
+          />
+        </Container>
+        <Container
+          ref={comp2}
+          className="d-none d-lg-block d-xl-none"
+          style={{
+            backgroundImage: "url(/resultlg.png)",
+            height: "500px",
+            width: "750px",
+          }}
+        >
+          <Screen
+            height={"405px"}
+            width={"720px"}
+            himt={"180px"}
+            contmt={"15px"}
+            divmt={"110px"}
+            imgHeight={"200px"}
+            imgWidth={"200px"}
+            fontsize={"34px"}
+            btnmt={"0px"}
+          />
+        </Container>
+
+        <Container
+          ref={comp3}
+          className="d-none d-md-block d-lg-none"
+          style={{
+            backgroundImage: "url(/resultmd.png)",
+            height: "440px",
+            width: "650px",
+          }}
+        >
+          <Screen
+            height={"350px"}
+            width={"625px"}
+            himt={"150px"}
+            contmt={"10px"}
+            divmt={"60px"}
+            imgHeight={"150px"}
+            imgWidth={"150px"}
+            fontsize={"30px"}
+            btnmt={"20px"}
+          />
+        </Container>
+
+        <Container
+          className="d-none d-sm-block d-md-none"
+          style={{
+            backgroundImage: "url(/resultsm.png)",
+            height: "360px",
+            width: "520px",
+            margin: "0",
+            padding: "0",
+          }}
+        ></Container>
+
+        <Container
+          className="d-block d-sm-none"
+          style={{
+            backgroundImage: "url(/backgroundphone.png)",
+            height: "670px",
+            width: "350px",
+            margin: "0",
+            padding: "0",
+          }}
+        ></Container>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+    </>
+  );
 }
