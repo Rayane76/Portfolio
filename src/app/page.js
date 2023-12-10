@@ -182,10 +182,10 @@ export default function Home() {
           y: -60,
           delay: 0.5,
         })
-        // .to("#buttns", {
-        //   opacity: 1,
-        //   display: "flex",
-        // });
+        .to("#buttns", {
+          opacity: 1,
+          display: "flex",
+        });
     }, comp5);
 
     return () => ctx5.revert();

@@ -68,35 +68,88 @@ export default function Phone() {
         }}
       >
         <div>
-          <h1
-            id="name"
+          <div
             style={{
-              opacity: "0",
-              display: "none",
-              fontSize: "25px",
-              marginLeft: "60px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
-            I'm Rayane
-          </h1>
-          <h1
-            id="desc"
-            style={{ opacity: "0", display: "none", fontSize: "25px" }}
-          >
-            a full stack developer
-            </h1>
             <h1
-             id="desc"
-            style={{ opacity: "0", display: "none", fontSize: "25px" , marginLeft:"5px" }}>
-             & Computer science 
-            
-          </h1>
-          <h1
-           id="desc"
-            style={{ opacity: "0", display: "none", fontSize: "25px",marginLeft:"78px" }}>
-          student
-          </h1>
+              id="name"
+              style={{
+                opacity: "0",
+                display: "none",
+                fontSize: "25px",
+                //marginLeft: "60px",
+              }}
+            >
+              I'm Rayane
+            </h1>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <h1
+              id="desc"
+              style={{ opacity: "0", display: "none", fontSize: "25px" }}
+            >
+              a full stack developer
+            </h1>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <h1
+              id="desc"
+              style={{ opacity: "0", display: "none", fontSize: "25px" }}
+            >
+              & Computer science
+            </h1>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <h1
+              id="desc"
+              style={{ opacity: "0", display: "none", fontSize: "25px" }}
+            >
+              student
+            </h1>
+          </div>
         </div>
+      </div>
+      <div
+        id="buttns"
+        style={{
+          opacity: "0",
+          display: "none",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column",
+        }}
+      >
+        <button style={{ all: "unset", marginBottom: "15px" }}>
+          <InfoOutlinedIcon></InfoOutlinedIcon> About me
+        </button>
+        <button style={{ all: "unset", marginBottom: "15px" }}>
+          <CodeOutlinedIcon></CodeOutlinedIcon> Technologies
+        </button>
+        <button style={{ all: "unset" }}>
+          <WebAssetOutlinedIcon></WebAssetOutlinedIcon> Projects
+        </button>
       </div>
     </>
   );
