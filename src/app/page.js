@@ -705,7 +705,7 @@ export default function Home() {
             opacity: 1,
             duration: 1,
             y: -80
-          }).to(["#tech2", "#projects2"],{
+          }).to(["#tech2", "#projects2","#home"],{
             display: "block",
             opacity: 1,
             duration: 1,
@@ -718,7 +718,7 @@ export default function Home() {
             opacity: 1,
             duration: 1,
             y: -100
-          }).to(["#about2", "#projects2"],{
+          }).to(["#about2", "#projects2","#home"],{
             display: "block",
             opacity: 1,
             duration: 1,
@@ -727,31 +727,85 @@ export default function Home() {
 
         if (whichClicked === "projects2") {
           setWhichClicked2(whichClicked);
-          tl6.to(["#projectsAfterClick", "#about2", "#tech2"], {
+          tl6.to(["#projectsAfterClick", "#about2", "#tech2","#home"], {
             display: "block",
             opacity: 1,
             duration: 1,
           });
         }
+
+        if (whichClicked === "home") {
+          setWhichClicked2(whichClicked);
+          tl6.to(["#name","#desc","#me"], {
+            display: "block",
+            opacity: 1,
+            duration: 1,
+            y: -80
+          }).to("#buttns",{
+            display: "flex",
+            opacity: 1,
+            duration: 1,
+          })
+        }
+
+        if (whichClicked === "about" && numClick !=1) {
+          setWhichClicked2(whichClicked);
+          tl6.to(["#aboutAfterClick"], {
+            display: "block",
+            opacity: 1,
+            duration: 1,
+            y: -80
+          }).to(["#tech2", "#projects2","#home"],{
+            display: "block",
+            opacity: 1,
+            duration: 1,
+          })
+        }
+
+        if (whichClicked === "tech" && numClick != 1) {
+          setWhichClicked2(whichClicked);
+          tl6.to(["#techAfterClick"], {
+            display: "block",
+            opacity: 1,
+            duration: 1,
+            y: -100
+          }).to(["#about2", "#projects2","#home"],{
+            display: "block",
+            opacity: 1,
+            duration: 1,
+          })
+        }
       }
-      if (whichClicked === "about") {
+      if (whichClicked === "about" && numClick === 1) {
         setWhichClicked2(whichClicked);
         tl6.to(["#aboutAfterClick"], {
           display: "block",
           opacity: 1,
           duration: 1,
           y: -80
-        }).to(["#tech2", "#projects2"],{
+        }).to(["#tech2", "#projects2","#home"],{
           display: "block",
           opacity: 1,
           duration: 1,
         })
       }
+
+      if (
+        whichClicked != "home" && whichClicked2 === "home"
+      ) {
+        tl6.to(["#name", "#desc", "#me", "#buttns"], {
+          opacity: 0,
+          duration: 1,
+          display: "none",
+          onComplete: startAnother,
+        });
+      }
+
       if (
         (whichClicked != "about" && whichClicked2 === "about") ||
         (whichClicked != "about2" && whichClicked2 === "about2")
       ) {
-        tl6.to(["#aboutAfterClick", "#tech2", "#projects2"], {
+        tl6.to(["#aboutAfterClick", "#tech2", "#projects2","#home"], {
           display: "none",
           opacity: 0,
           duration: 1,
@@ -759,14 +813,14 @@ export default function Home() {
         });
       }
 
-      if (whichClicked === "tech") {
+      if (whichClicked === "tech" && numClick === 1) {
         setWhichClicked2(whichClicked);
         tl6.to(["#techAfterClick"], {
           display: "block",
           opacity: 1,
           duration: 1,
           y: -100
-        }).to(["#about2", "#projects2"],{
+        }).to(["#about2", "#projects2","#home"],{
           display: "block",
           opacity: 1,
           duration: 1,
@@ -776,7 +830,7 @@ export default function Home() {
         (whichClicked != "tech" && whichClicked2 === "tech") ||
         (whichClicked != "tech2" && whichClicked2 === "tech2")
       ) {
-        tl6.to(["#techAfterClick", "#about2", "#projects2"], {
+        tl6.to(["#techAfterClick", "#about2", "#projects2","#home"], {
           display: "none",
           opacity: 0,
           duration: 1,
@@ -786,7 +840,7 @@ export default function Home() {
 
       if (whichClicked === "projects") {
         setWhichClicked2(whichClicked);
-        tl6.to(["#projectsAfterClick", "#about2", "#tech2"], {
+        tl6.to(["#projectsAfterClick", "#about2", "#tech2","#home"], {
           display: "block",
           opacity: 1,
           duration: 1,
@@ -796,7 +850,7 @@ export default function Home() {
         (whichClicked != "projects" && whichClicked2 === "projects") ||
         (whichClicked != "projects2" && whichClicked2 === "projects2")
       ) {
-        tl6.to(["#projectsAfterClick", "#about2", "#tech2"], {
+        tl6.to(["#projectsAfterClick", "#about2", "#tech2","#home"], {
           display: "none",
           opacity: 0,
           duration: 1,

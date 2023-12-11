@@ -4,6 +4,7 @@ import { useLayoutEffect, useRef , useState } from "react";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import CodeOutlinedIcon from "@mui/icons-material/CodeOutlined";
 import WebAssetOutlinedIcon from "@mui/icons-material/WebAssetOutlined";
+import HomeIcon from '@mui/icons-material/Home';
 
 export default function Phone(props) {
   
@@ -173,11 +174,14 @@ export default function Phone(props) {
     <div id="aboutAfterClick" style={{display:"none",opacity:"0"}}>
       <p style={{marginLeft:"40px",marginRight:"30px" , fontWeight:"bold" , marginBottom:"30px" }}>Welcome to my portfolio! I am a dedicated full-stack web developer and a passionate computer science student at USTHB (University of Science and Technology Houari Boumediene). With a keen interest in the dynamic realm of technology, I specialize in crafting innovative and user-friendly web solutions. My journey in computer science has equipped me with a solid foundation, allowing me to seamlessly bridge the gap between front-end and back-end development.</p>
       <div style={{display:"flex",justifyContent:"center",alignItems:"center",flexDirection:"column"}}>
-      <button id="tech2" style={{ all: "unset", marginBottom: "15px" }} onClick={handleAbout}>
+      <button id="tech2" style={{ all: "unset", marginBottom: "12px" }} onClick={handleAbout}>
           <CodeOutlinedIcon></CodeOutlinedIcon> Technologies
         </button>
-        <button id="projects2" style={{ all: "unset",marginTop:"15px" }} onClick={handleAbout}>
+        <button id="projects2" style={{ all: "unset",marginTop:"12px",marginBottom:"12px" }} onClick={handleAbout}>
           <WebAssetOutlinedIcon></WebAssetOutlinedIcon> Projects
+        </button>
+        <button id="home" style={{ all: "unset",marginTop:"12px" }} onClick={handleAbout}>
+          <HomeIcon></HomeIcon> Home
         </button>
         </div>
     </div>
@@ -215,11 +219,16 @@ export default function Phone(props) {
         <img src="/mongo.jpg" style={{height:"50px"}}></img>
         </div>
         <div style={{display:"flex",justifyContent:"center",alignItems:"center",marginTop:"20px"}}>
-    <button id="about2" style={{ all: "unset",marginRight:"20px"}} onClick={handleAbout}>
+    <button id="about2" style={{ all: "unset",marginRight:"25px"}} onClick={handleAbout}>
           <InfoOutlinedIcon></InfoOutlinedIcon> About me
         </button>
-        <button id="projects2" style={{ all: "unset",marginLeft:"20px" }} onClick={handleAbout}>
+        <button id="projects2" style={{ all: "unset",marginLeft:"25px" }} onClick={handleAbout}>
           <WebAssetOutlinedIcon></WebAssetOutlinedIcon> Projects
+        </button>
+        </div>
+        <div style={{display:"flex",justifyContent:"center",alignItems:"center",marginTop:"10px"}}>
+        <button id="home" style={{ all: "unset",marginTop:"7px" }} onClick={handleAbout}>
+          <HomeIcon></HomeIcon> Home
         </button>
         </div>
     </div>
@@ -232,6 +241,9 @@ export default function Phone(props) {
         </button>
         <button id="tech2" style={{ all: "unset", marginBottom: "15px" }} onClick={handleAbout}>
           <CodeOutlinedIcon></CodeOutlinedIcon> Technologies
+        </button>
+        <button id="home" style={{ all: "unset",marginTop:"15px" }} onClick={handleAbout}>
+          <HomeIcon></HomeIcon> Home
         </button>
     </div>
 
