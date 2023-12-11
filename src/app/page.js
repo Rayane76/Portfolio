@@ -3,7 +3,7 @@
 import "../styles/styles.css";
 import Container from "react-bootstrap/Container";
 import { gsap } from "gsap";
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import CodeOutlinedIcon from "@mui/icons-material/CodeOutlined";
 import WebAssetOutlinedIcon from "@mui/icons-material/WebAssetOutlined";
@@ -17,6 +17,20 @@ export default function Home() {
   const comp3 = useRef(null);
   const comp4 = useRef(null);
   const comp5 = useRef(null);
+
+  const [clicked, setClicked] = useState(false);
+  const [numClick, setNumClick] = useState(0);
+  const [whichClicked, setWhichClicked] = useState("");
+  const [whichClicked2, setWhichClicked2] = useState("");
+
+  const handleClicked = (value) => {
+    setClicked(value);
+    setNumClick((prev) => prev + 1);
+  };
+
+  const handleWhichONe = (whichOne) => {
+    setWhichClicked(whichOne);
+  };
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
@@ -52,6 +66,107 @@ export default function Home() {
 
     return () => ctx.revert();
   }, []);
+
+  useLayoutEffect(() => {
+    let ctx1 = gsap.context(() => {
+      var tl11 = gsap.timeline();
+      if (clicked && numClick === 1) {
+        tl11.to(["#name", "#desc", "#me", "#buttns"], {
+          opacity: 0,
+          duration: 1,
+          display: "none",
+        });
+      }
+
+      function startAnother() {
+        if (whichClicked === "about2") {
+          setWhichClicked2(whichClicked);
+          tl11.to(["#aboutAfterClick", "#tech2", "#projects2"], {
+            display: "block",
+            opacity: 1,
+            duration: 1,
+          });
+        }
+        if (whichClicked === "tech2") {
+          setWhichClicked2(whichClicked);
+          tl11.to(["#techAfterClick", "#about2", "#projects2"], {
+            display: "block",
+            opacity: 1,
+            duration: 1,
+          });
+        }
+
+        if (whichClicked === "projects2") {
+          setWhichClicked2(whichClicked);
+          tl11.to(["#projectsAfterClick", "#about2", "#tech2"], {
+            display: "block",
+            opacity: 1,
+            duration: 1,
+          });
+        }
+      }
+      if (whichClicked === "about") {
+        setWhichClicked2(whichClicked);
+        tl11.to(["#aboutAfterClick", "#tech2", "#projects2"], {
+          display: "block",
+          opacity: 1,
+          duration: 1,
+        });
+      }
+      if (
+        (whichClicked != "about" && whichClicked2 === "about") ||
+        (whichClicked != "about2" && whichClicked2 === "about2")
+      ) {
+        tl11.to(["#aboutAfterClick", "#tech2", "#projects2"], {
+          display: "none",
+          opacity: 0,
+          duration: 1,
+          onComplete: startAnother,
+        });
+      }
+
+      if (whichClicked === "tech") {
+        setWhichClicked2(whichClicked);
+        tl11.to(["#techAfterClick", "#about2", "#projects2"], {
+          display: "block",
+          opacity: 1,
+          duration: 1,
+        });
+      }
+      if (
+        (whichClicked != "tech" && whichClicked2 === "tech") ||
+        (whichClicked != "tech2" && whichClicked2 === "tech2")
+      ) {
+        tl11.to(["#techAfterClick", "#about2", "#projects2"], {
+          display: "none",
+          opacity: 0,
+          duration: 1,
+          onComplete: startAnother,
+        });
+      }
+
+      if (whichClicked === "projects") {
+        setWhichClicked2(whichClicked);
+        tl11.to(["#projectsAfterClick", "#about2", "#tech2"], {
+          display: "block",
+          opacity: 1,
+          duration: 1,
+        });
+      }
+      if (
+        (whichClicked != "projects" && whichClicked2 === "projects") ||
+        (whichClicked != "projects2" && whichClicked2 === "projects2")
+      ) {
+        tl11.to(["#projectsAfterClick", "#about2", "#tech2"], {
+          display: "none",
+          opacity: 0,
+          duration: 1,
+          onComplete: startAnother,
+        });
+      }
+    }, comp1);
+  }, [clicked,whichClicked,whichClicked2]);
+
   useLayoutEffect(() => {
     let ctx2 = gsap.context(() => {
       var tl2 = gsap.timeline();
@@ -85,6 +200,106 @@ export default function Home() {
     }, comp2);
     return () => ctx2.revert();
   }, []);
+
+  useLayoutEffect(() => {
+    let ctx22 = gsap.context(() => {
+      var tl22 = gsap.timeline();
+      if (clicked && numClick === 1) {
+        tl22.to(["#name", "#desc", "#me", "#buttns"], {
+          opacity: 0,
+          duration: 1,
+          display: "none",
+        });
+      }
+
+      function startAnother() {
+        if (whichClicked === "about2") {
+          setWhichClicked2(whichClicked);
+          tl22.to(["#aboutAfterClick", "#tech2", "#projects2"], {
+            display: "block",
+            opacity: 1,
+            duration: 1,
+          });
+        }
+        if (whichClicked === "tech2") {
+          setWhichClicked2(whichClicked);
+          tl22.to(["#techAfterClick", "#about2", "#projects2"], {
+            display: "block",
+            opacity: 1,
+            duration: 1,
+          });
+        }
+
+        if (whichClicked === "projects2") {
+          setWhichClicked2(whichClicked);
+          tl22.to(["#projectsAfterClick", "#about2", "#tech2"], {
+            display: "block",
+            opacity: 1,
+            duration: 1,
+          });
+        }
+      }
+      if (whichClicked === "about") {
+        setWhichClicked2(whichClicked);
+        tl22.to(["#aboutAfterClick", "#tech2", "#projects2"], {
+          display: "block",
+          opacity: 1,
+          duration: 1,
+        });
+      }
+      if (
+        (whichClicked != "about" && whichClicked2 === "about") ||
+        (whichClicked != "about2" && whichClicked2 === "about2")
+      ) {
+        tl22.to(["#aboutAfterClick", "#tech2", "#projects2"], {
+          display: "none",
+          opacity: 0,
+          duration: 1,
+          onComplete: startAnother,
+        });
+      }
+
+      if (whichClicked === "tech") {
+        setWhichClicked2(whichClicked);
+        tl22.to(["#techAfterClick", "#about2", "#projects2"], {
+          display: "block",
+          opacity: 1,
+          duration: 1,
+        });
+      }
+      if (
+        (whichClicked != "tech" && whichClicked2 === "tech") ||
+        (whichClicked != "tech2" && whichClicked2 === "tech2")
+      ) {
+        tl22.to(["#techAfterClick", "#about2", "#projects2"], {
+          display: "none",
+          opacity: 0,
+          duration: 1,
+          onComplete: startAnother,
+        });
+      }
+
+      if (whichClicked === "projects") {
+        setWhichClicked2(whichClicked);
+        tl22.to(["#projectsAfterClick", "#about2", "#tech2"], {
+          display: "block",
+          opacity: 1,
+          duration: 1,
+        });
+      }
+      if (
+        (whichClicked != "projects" && whichClicked2 === "projects") ||
+        (whichClicked != "projects2" && whichClicked2 === "projects2")
+      ) {
+        tl22.to(["#projectsAfterClick", "#about2", "#tech2"], {
+          display: "none",
+          opacity: 0,
+          duration: 1,
+          onComplete: startAnother,
+        });
+      }
+    }, comp2);
+  }, [clicked,whichClicked,whichClicked2]);
 
   useLayoutEffect(() => {
     let ctx3 = gsap.context(() => {
@@ -122,6 +337,106 @@ export default function Home() {
   }, []);
 
   useLayoutEffect(() => {
+    let ctx33 = gsap.context(() => {
+      var tl33 = gsap.timeline();
+      if (clicked && numClick === 1) {
+        tl33.to(["#name", "#desc", "#me", "#buttns"], {
+          opacity: 0,
+          duration: 1,
+          display: "none",
+        });
+      }
+
+      function startAnother() {
+        if (whichClicked === "about2") {
+          setWhichClicked2(whichClicked);
+          tl33.to(["#aboutAfterClick", "#tech2", "#projects2"], {
+            display: "block",
+            opacity: 1,
+            duration: 1,
+          });
+        }
+        if (whichClicked === "tech2") {
+          setWhichClicked2(whichClicked);
+          tl33.to(["#techAfterClick", "#about2", "#projects2"], {
+            display: "block",
+            opacity: 1,
+            duration: 1,
+          });
+        }
+
+        if (whichClicked === "projects2") {
+          setWhichClicked2(whichClicked);
+          tl33.to(["#projectsAfterClick", "#about2", "#tech2"], {
+            display: "block",
+            opacity: 1,
+            duration: 1,
+          });
+        }
+      }
+      if (whichClicked === "about") {
+        setWhichClicked2(whichClicked);
+        tl33.to(["#aboutAfterClick", "#tech2", "#projects2"], {
+          display: "block",
+          opacity: 1,
+          duration: 1,
+        });
+      }
+      if (
+        (whichClicked != "about" && whichClicked2 === "about") ||
+        (whichClicked != "about2" && whichClicked2 === "about2")
+      ) {
+        tl33.to(["#aboutAfterClick", "#tech2", "#projects2"], {
+          display: "none",
+          opacity: 0,
+          duration: 1,
+          onComplete: startAnother,
+        });
+      }
+
+      if (whichClicked === "tech") {
+        setWhichClicked2(whichClicked);
+        tl33.to(["#techAfterClick", "#about2", "#projects2"], {
+          display: "block",
+          opacity: 1,
+          duration: 1,
+        });
+      }
+      if (
+        (whichClicked != "tech" && whichClicked2 === "tech") ||
+        (whichClicked != "tech2" && whichClicked2 === "tech2")
+      ) {
+        tl33.to(["#techAfterClick", "#about2", "#projects2"], {
+          display: "none",
+          opacity: 0,
+          duration: 1,
+          onComplete: startAnother,
+        });
+      }
+
+      if (whichClicked === "projects") {
+        setWhichClicked2(whichClicked);
+        tl33.to(["#projectsAfterClick", "#about2", "#tech2"], {
+          display: "block",
+          opacity: 1,
+          duration: 1,
+        });
+      }
+      if (
+        (whichClicked != "projects" && whichClicked2 === "projects") ||
+        (whichClicked != "projects2" && whichClicked2 === "projects2")
+      ) {
+        tl33.to(["#projectsAfterClick", "#about2", "#tech2"], {
+          display: "none",
+          opacity: 0,
+          duration: 1,
+          onComplete: startAnother,
+        });
+      }
+    }, comp3);
+  }, [clicked,whichClicked,whichClicked2]);
+
+  useLayoutEffect(() => {
     let ctx4 = gsap.context(() => {
       var tl4 = gsap.timeline();
       tl4
@@ -157,10 +472,110 @@ export default function Home() {
   }, []);
 
   useLayoutEffect(() => {
+    let ctx44 = gsap.context(() => {
+      var tl44 = gsap.timeline();
+      if (clicked && numClick === 1) {
+        tl44.to(["#name", "#desc", "#me", "#buttns"], {
+          opacity: 0,
+          duration: 1,
+          display: "none",
+        });
+      }
+
+      function startAnother() {
+        if (whichClicked === "about2") {
+          setWhichClicked2(whichClicked);
+          tl44.to(["#aboutAfterClick", "#tech2", "#projects2"], {
+            display: "block",
+            opacity: 1,
+            duration: 1,
+          });
+        }
+        if (whichClicked === "tech2") {
+          setWhichClicked2(whichClicked);
+          tl44.to(["#techAfterClick", "#about2", "#projects2"], {
+            display: "block",
+            opacity: 1,
+            duration: 1,
+          });
+        }
+
+        if (whichClicked === "projects2") {
+          setWhichClicked2(whichClicked);
+          tl44.to(["#projectsAfterClick", "#about2", "#tech2"], {
+            display: "block",
+            opacity: 1,
+            duration: 1,
+          });
+        }
+      }
+      if (whichClicked === "about") {
+        setWhichClicked2(whichClicked);
+        tl44.to(["#aboutAfterClick", "#tech2", "#projects2"], {
+          display: "block",
+          opacity: 1,
+          duration: 1,
+        });
+      }
+      if (
+        (whichClicked != "about" && whichClicked2 === "about") ||
+        (whichClicked != "about2" && whichClicked2 === "about2")
+      ) {
+        tl44.to(["#aboutAfterClick", "#tech2", "#projects2"], {
+          display: "none",
+          opacity: 0,
+          duration: 1,
+          onComplete: startAnother,
+        });
+      }
+
+      if (whichClicked === "tech") {
+        setWhichClicked2(whichClicked);
+        tl44.to(["#techAfterClick", "#about2", "#projects2"], {
+          display: "block",
+          opacity: 1,
+          duration: 1,
+        });
+      }
+      if (
+        (whichClicked != "tech" && whichClicked2 === "tech") ||
+        (whichClicked != "tech2" && whichClicked2 === "tech2")
+      ) {
+        tl44.to(["#techAfterClick", "#about2", "#projects2"], {
+          display: "none",
+          opacity: 0,
+          duration: 1,
+          onComplete: startAnother,
+        });
+      }
+
+      if (whichClicked === "projects") {
+        setWhichClicked2(whichClicked);
+        tl44.to(["#projectsAfterClick", "#about2", "#tech2"], {
+          display: "block",
+          opacity: 1,
+          duration: 1,
+        });
+      }
+      if (
+        (whichClicked != "projects" && whichClicked2 === "projects") ||
+        (whichClicked != "projects2" && whichClicked2 === "projects2")
+      ) {
+        tl44.to(["#projectsAfterClick", "#about2", "#tech2"], {
+          display: "none",
+          opacity: 0,
+          duration: 1,
+          onComplete: startAnother,
+        });
+      }
+    }, comp4);
+  }, [clicked, whichClicked, whichClicked2]);
+
+  useLayoutEffect(() => {
     let ctx5 = gsap.context(() => {
       var tl5 = gsap.timeline();
       tl5
-        .to("#phoneback", { display:"none" , opacity: 0, duration: 3 })
+        .to("#phoneback", { display: "none", opacity: 0, duration: 3 })
         .to("#hi", {
           color: "black",
           opacity: 1,
@@ -170,7 +585,7 @@ export default function Home() {
           opacity: 0,
           duration: 1,
           display: "none",
-          delay:1
+          delay: 1,
         })
         .to(["#name", "#desc", "#me"], {
           delay: 0.5,
@@ -190,6 +605,106 @@ export default function Home() {
 
     return () => ctx5.revert();
   }, []);
+
+  useLayoutEffect(() => {
+    let ctx6 = gsap.context(() => {
+      var tl6 = gsap.timeline();
+      if (clicked && numClick === 1) {
+        tl6.to(["#name", "#desc", "#me", "#buttns"], {
+          opacity: 0,
+          duration: 1,
+          display: "none",
+        });
+      }
+
+      function startAnother() {
+        if (whichClicked === "about2") {
+          setWhichClicked2(whichClicked);
+          tl6.to(["#aboutAfterClick", "#tech2", "#projects2"], {
+            display: "block",
+            opacity: 1,
+            duration: 1,
+          });
+        }
+        if (whichClicked === "tech2") {
+          setWhichClicked2(whichClicked);
+          tl6.to(["#techAfterClick", "#about2", "#projects2"], {
+            display: "block",
+            opacity: 1,
+            duration: 1,
+          });
+        }
+
+        if (whichClicked === "projects2") {
+          setWhichClicked2(whichClicked);
+          tl6.to(["#projectsAfterClick", "#about2", "#tech2"], {
+            display: "block",
+            opacity: 1,
+            duration: 1,
+          });
+        }
+      }
+      if (whichClicked === "about") {
+        setWhichClicked2(whichClicked);
+        tl6.to(["#aboutAfterClick", "#tech2", "#projects2"], {
+          display: "block",
+          opacity: 1,
+          duration: 1,
+        });
+      }
+      if (
+        (whichClicked != "about" && whichClicked2 === "about") ||
+        (whichClicked != "about2" && whichClicked2 === "about2")
+      ) {
+        tl6.to(["#aboutAfterClick", "#tech2", "#projects2"], {
+          display: "none",
+          opacity: 0,
+          duration: 1,
+          onComplete: startAnother,
+        });
+      }
+
+      if (whichClicked === "tech") {
+        setWhichClicked2(whichClicked);
+        tl6.to(["#techAfterClick", "#about2", "#projects2"], {
+          display: "block",
+          opacity: 1,
+          duration: 1,
+        });
+      }
+      if (
+        (whichClicked != "tech" && whichClicked2 === "tech") ||
+        (whichClicked != "tech2" && whichClicked2 === "tech2")
+      ) {
+        tl6.to(["#techAfterClick", "#about2", "#projects2"], {
+          display: "none",
+          opacity: 0,
+          duration: 1,
+          onComplete: startAnother,
+        });
+      }
+
+      if (whichClicked === "projects") {
+        setWhichClicked2(whichClicked);
+        tl6.to(["#projectsAfterClick", "#about2", "#tech2"], {
+          display: "block",
+          opacity: 1,
+          duration: 1,
+        });
+      }
+      if (
+        (whichClicked != "projects" && whichClicked2 === "projects") ||
+        (whichClicked != "projects2" && whichClicked2 === "projects2")
+      ) {
+        tl6.to(["#projectsAfterClick", "#about2", "#tech2"], {
+          display: "none",
+          opacity: 0,
+          duration: 1,
+          onComplete: startAnother,
+        });
+      }
+    }, comp5);
+  }, [clicked, whichClicked, whichClicked2]);
 
   return (
     <>
@@ -221,6 +736,8 @@ export default function Home() {
             imgWidth={"200px"}
             fontsize={"38px"}
             btnmt={"30px"}
+            click={handleClicked}
+            whichOne={handleWhichONe}
           />
         </Container>
         <Container
@@ -242,6 +759,8 @@ export default function Home() {
             imgWidth={"200px"}
             fontsize={"34px"}
             btnmt={"0px"}
+            click={handleClicked}
+            whichOne={handleWhichONe}
           />
         </Container>
 
@@ -264,11 +783,13 @@ export default function Home() {
             imgWidth={"150px"}
             fontsize={"30px"}
             btnmt={"20px"}
+            click={handleClicked}
+            whichOne={handleWhichONe}
           />
         </Container>
 
         <Container
-           ref={comp4}
+          ref={comp4}
           className="d-none d-sm-block d-md-none"
           style={{
             backgroundImage: "url(/resultsm.png)",
@@ -278,7 +799,7 @@ export default function Home() {
             padding: "0",
           }}
         >
-          <Screen 
+          <Screen
             height={"282px"}
             width={"502px"}
             himt={"120px"}
@@ -288,7 +809,9 @@ export default function Home() {
             imgWidth={"130px"}
             fontsize={"25px"}
             btnmt={"10px"}
-           />
+            click={handleClicked}
+            whichOne={handleWhichONe}
+          />
         </Container>
 
         <Container
@@ -302,7 +825,7 @@ export default function Home() {
             padding: "0",
           }}
         >
-          <Phone />
+          <Phone click={handleClicked} whichOne={handleWhichONe} />
         </Container>
       </div>
     </>
