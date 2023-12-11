@@ -4,7 +4,11 @@ import { useLayoutEffect, useRef, useState } from "react";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import CodeOutlinedIcon from "@mui/icons-material/CodeOutlined";
 import WebAssetOutlinedIcon from "@mui/icons-material/WebAssetOutlined";
-import HtmlIcon from '@mui/icons-material/Html';
+import HomeIcon from '@mui/icons-material/Home';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 export default function Screen(props) {
   const [click, setClick] = useState(false);
@@ -78,7 +82,7 @@ export default function Screen(props) {
                 fontSize: props.fontsize,
               }}
             >
-              I'm Rayane
+              I'm Rayane Hiouani
             </h1>
             <h1
               id="desc"
@@ -121,6 +125,47 @@ export default function Screen(props) {
             <WebAssetOutlinedIcon></WebAssetOutlinedIcon> Projects
           </button>
         </div>
+        <div id="socialmedia" style={{display:"flex",justifyContent:"center",alignItems:"center",marginTop:props.socialMediaMt,display:"none",opacity:"0"}}>
+        <a href="https://github.com/Rayane76"><GitHubIcon style={{height:props.socialMediaSize,width:props.socialMediaSize}}></GitHubIcon></a>
+        <a href="https://www.facebook.com/rayane.hiouani/"> <FacebookIcon style={{marginLeft:"30px",height:props.socialMediaSize,width:props.socialMediaSize}}></FacebookIcon></a>
+        <a href="https://www.instagram.com/ray_ane_hn/"><InstagramIcon style={{marginLeft:"30px",height:props.socialMediaSize,width:props.socialMediaSize}}></InstagramIcon></a>
+        <a href="https://www.linkedin.com/in/rayane-hiouani-1794512a4/"><LinkedInIcon style={{marginLeft:"30px",height:props.socialMediaSize,width:props.socialMediaSize}}></LinkedInIcon></a>
+      </div>
+
+      <div id="projectsAfterClick" style={{ display: "none", opacity: "0"}}>
+      <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+            marginBottom:"50px",
+          }}
+        >
+          <h1>Not yet ...</h1>
+          <h1>Visit my GitHub for</h1>
+          <h1>more informations</h1>
+        </div>
+        <div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+        <button
+          id="about2"
+          style={{ all: "unset",marginRight:"15px" }}
+          onClick={handleAbout}
+        >
+          <InfoOutlinedIcon></InfoOutlinedIcon> About me
+        </button>
+        <button
+          id="tech2"
+          style={{ all: "unset",marginLeft:"15px",marginRight:"15px"}}
+          onClick={handleAbout}
+        >
+          <CodeOutlinedIcon></CodeOutlinedIcon> Technologies
+        </button>
+        <button id="home" style={{ all: "unset",marginLeft:"15px"}} onClick={handleAbout}>
+          <HomeIcon></HomeIcon> Home
+        </button>
+        </div>
+      </div>
       </Container>
 
       {/* AFTER CLICKING */}
@@ -143,8 +188,11 @@ export default function Screen(props) {
         >
           <CodeOutlinedIcon></CodeOutlinedIcon> Technologies
         </button>
-        <button id="projects2" style={{ all: "unset" , marginLeft:"20px" }} onClick={handleAbout}>
+        <button id="projects2" style={{ all: "unset" , marginLeft:"20px" , marginRight:"20px" }} onClick={handleAbout}>
           <WebAssetOutlinedIcon></WebAssetOutlinedIcon> Projects
+        </button>
+        <button id="home" style={{ all: "unset" , marginLeft:"20px" }} onClick={handleAbout}>
+          <HomeIcon></HomeIcon> Home
         </button>
         </div>
       </div>
@@ -182,15 +230,31 @@ export default function Screen(props) {
         >
           <InfoOutlinedIcon></InfoOutlinedIcon> About me
         </button>
-        <button id="projects2" style={{ all: "unset" ,marginLeft:"30px" }} onClick={handleAbout}>
+        <button id="projects2" style={{ all: "unset" ,marginLeft:"30px",marginRight:"30px" }} onClick={handleAbout}>
           <WebAssetOutlinedIcon></WebAssetOutlinedIcon> Projects
+        </button>
+        <button id="home" style={{ all: "unset",marginLeft:"30px" }} onClick={handleAbout}>
+          <HomeIcon></HomeIcon> Home
         </button>
         </div>
        
       </div>
 
-      <div id="projectsAfterClick" style={{ display: "none", opacity: "0" }}>
-        <h1>hello</h1>
+      {/* <div id="projectsAfterClick" style={{ display: "none", opacity: "0"}}>
+      <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+            marginBottom:"50px",
+          }}
+        >
+          <h1>Not yet ...</h1>
+          <h1>Visit my GitHub for</h1>
+          <h1>more informations</h1>
+        </div>
+        <div>
         <button
           id="about2"
           style={{ all: "unset", marginBottom: "15px" }}
@@ -205,7 +269,11 @@ export default function Screen(props) {
         >
           <CodeOutlinedIcon></CodeOutlinedIcon> Technologies
         </button>
-      </div>
+        <button id="home" style={{ all: "unset",marginTop:"12px" }} onClick={handleAbout}>
+          <HomeIcon></HomeIcon> Home
+        </button>
+        </div>
+      </div> */}
     </>
   );
 }

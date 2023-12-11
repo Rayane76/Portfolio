@@ -58,7 +58,7 @@ export default function Home() {
           y: -80,
           delay: 0.5,
         })
-        .to("#buttns", {
+        .to(["#buttns","#socialmedia"], {
           opacity: 1,
           display: "flex",
         });
@@ -71,7 +71,7 @@ export default function Home() {
     let ctx1 = gsap.context(() => {
       var tl11 = gsap.timeline();
       if (clicked && numClick === 1) {
-        tl11.to(["#name", "#desc", "#me", "#buttns"], {
+        tl11.to(["#name", "#desc", "#me", "#buttns","#socialmedia"], {
           opacity: 0,
           duration: 1,
           display: "none",
@@ -86,7 +86,7 @@ export default function Home() {
             opacity: 1,
             duration: 1,
             y: -400
-          }).to(["#tech2", "#projects2"],{
+          }).to(["#tech2", "#projects2","#home"],{
             display: "block",
             opacity: 1,
             duration: 1,
@@ -99,7 +99,7 @@ export default function Home() {
             opacity: 1,
             duration: 1,
             y: -460
-          }).to(["#about2", "#projects2"],{
+          }).to(["#about2", "#projects2","#home"],{
             display: "block",
             opacity: 1,
             duration: 1,
@@ -108,21 +108,62 @@ export default function Home() {
 
         if (whichClicked === "projects2") {
           setWhichClicked2(whichClicked);
-          tl11.to(["#projectsAfterClick", "#about2", "#tech2"], {
+          tl11.to(["#projectsAfterClick", "#about2", "#tech2","#home"], {
             display: "block",
             opacity: 1,
             duration: 1,
           });
         }
+
+        if (whichClicked === "tech" && numClick != 1) {
+          setWhichClicked2(whichClicked);
+          tl11.to(["#techAfterClick"], {
+            display: "block",
+            opacity: 1,
+            duration: 1,
+            y: -460
+          }).to(["#about2", "#projects2","#home"],{
+            display: "block",
+            opacity: 1,
+            duration: 1,
+          })
+        }
+
+        if (whichClicked === "about" && numClick != 1) {
+          setWhichClicked2(whichClicked);
+          tl11.to(["#aboutAfterClick"], {
+            display: "block",
+            opacity: 1,
+            duration: 1,
+            y: -400
+          }).to(["#tech2", "#projects2","#home"],{
+            display: "block",
+            opacity: 1,
+            duration: 1,
+          })
+        }
+
+        if (whichClicked === "home") {
+          setWhichClicked2(whichClicked);
+          tl11.to(["#name","#desc","#me"], {
+            display: "block",
+            opacity: 1,
+            duration: 1,
+          }).to(["#buttns","#socialmedia"],{
+            display: "flex",
+            opacity: 1,
+            duration: 1,
+          })
+        }
       }
-      if (whichClicked === "about") {
+      if (whichClicked === "about" && numClick ===1) {
         setWhichClicked2(whichClicked);
         tl11.to(["#aboutAfterClick"], {
           display: "block",
           opacity: 1,
           duration: 1,
           y: -400
-        }).to(["#tech2", "#projects2"],{
+        }).to(["#tech2", "#projects2","#home"],{
           display: "block",
           opacity: 1,
           duration: 1,
@@ -132,7 +173,7 @@ export default function Home() {
         (whichClicked != "about" && whichClicked2 === "about") ||
         (whichClicked != "about2" && whichClicked2 === "about2")
       ) {
-        tl11.to(["#aboutAfterClick", "#tech2", "#projects2"], {
+        tl11.to(["#aboutAfterClick", "#tech2", "#projects2","#home"], {
           display: "none",
           opacity: 0,
           duration: 1,
@@ -140,14 +181,14 @@ export default function Home() {
         });
       }
 
-      if (whichClicked === "tech") {
+      if (whichClicked === "tech" && numClick ===1) {
         setWhichClicked2(whichClicked);
         tl11.to(["#techAfterClick"], {
           display: "block",
           opacity: 1,
           duration: 1,
           y: -460
-        }).to(["#about2", "#projects2"],{
+        }).to(["#about2", "#projects2","#home"],{
           display: "block",
           opacity: 1,
           duration: 1,
@@ -157,7 +198,7 @@ export default function Home() {
         (whichClicked != "tech" && whichClicked2 === "tech") ||
         (whichClicked != "tech2" && whichClicked2 === "tech2")
       ) {
-        tl11.to(["#techAfterClick", "#about2", "#projects2"], {
+        tl11.to(["#techAfterClick", "#about2", "#projects2","#home"], {
           display: "none",
           opacity: 0,
           duration: 1,
@@ -165,9 +206,20 @@ export default function Home() {
         });
       }
 
+      if (
+        whichClicked != "home" && whichClicked2 === "home"
+      ) {
+        tl11.to(["#name", "#desc", "#me", "#buttns","#socialmedia"], {
+          opacity: 0,
+          duration: 1,
+          display: "none",
+          onComplete: startAnother,
+        });
+      }
+
       if (whichClicked === "projects") {
         setWhichClicked2(whichClicked);
-        tl11.to(["#projectsAfterClick", "#about2", "#tech2"], {
+        tl11.to(["#projectsAfterClick", "#about2", "#tech2","#home"], {
           display: "block",
           opacity: 1,
           duration: 1,
@@ -177,7 +229,7 @@ export default function Home() {
         (whichClicked != "projects" && whichClicked2 === "projects") ||
         (whichClicked != "projects2" && whichClicked2 === "projects2")
       ) {
-        tl11.to(["#projectsAfterClick", "#about2", "#tech2"], {
+        tl11.to(["#projectsAfterClick", "#about2", "#tech2","#home"], {
           display: "none",
           opacity: 0,
           duration: 1,
@@ -213,7 +265,7 @@ export default function Home() {
           y: -80,
           delay: 0.5,
         })
-        .to("#buttns", {
+        .to(["#buttns","#socialmedia"], {
           opacity: 1,
           display: "flex",
         });
@@ -225,7 +277,7 @@ export default function Home() {
     let ctx22 = gsap.context(() => {
       var tl22 = gsap.timeline();
       if (clicked && numClick === 1) {
-        tl22.to(["#name", "#desc", "#me", "#buttns"], {
+        tl22.to(["#name", "#desc", "#me", "#buttns","#socialmedia"], {
           opacity: 0,
           duration: 1,
           display: "none",
@@ -240,7 +292,7 @@ export default function Home() {
             opacity: 1,
             duration: 1,
             y: -380
-          }).to(["#tech2", "#projects2"],{
+          }).to(["#tech2", "#projects2","#home"],{
             display: "block",
             opacity: 1,
             duration: 1,
@@ -253,7 +305,7 @@ export default function Home() {
             opacity: 1,
             duration: 1,
             y: -380
-          }).to(["#about2", "#projects2"],{
+          }).to(["#about2", "#projects2","#home"],{
             display: "block",
             opacity: 1,
             duration: 1,
@@ -262,21 +314,63 @@ export default function Home() {
 
         if (whichClicked === "projects2") {
           setWhichClicked2(whichClicked);
-          tl22.to(["#projectsAfterClick", "#about2", "#tech2"], {
+          tl22.to(["#projectsAfterClick", "#about2", "#tech2","#home"], {
             display: "block",
             opacity: 1,
             duration: 1,
           });
         }
+
+        if (whichClicked === "home") {
+          setWhichClicked2(whichClicked);
+          tl22.to(["#name","#desc","#me"], {
+            display: "block",
+            opacity: 1,
+            duration: 1,
+           // y: -80
+          }).to(["#buttns","#socialmedia"],{
+            display: "flex",
+            opacity: 1,
+            duration: 1,
+          })
+        }
+
+        if (whichClicked === "tech" && numClick != 1) {
+          setWhichClicked2(whichClicked);
+          tl22.to(["#techAfterClick"], {
+            display: "block",
+            opacity: 1,
+            duration: 1,
+            y: -380
+          }).to(["#about2", "#projects2","#home"],{
+            display: "block",
+            opacity: 1,
+            duration: 1,
+          })
+        }
+
+        if (whichClicked === "about" && numClick != 1) {
+          setWhichClicked2(whichClicked);
+          tl22.to(["#aboutAfterClick"], {
+            display: "block",
+            opacity: 1,
+            duration: 1,
+            y: -380
+          }).to(["#tech2", "#projects2","#home"],{
+            display: "block",
+            opacity: 1,
+            duration: 1,
+          })
+        }
       }
-      if (whichClicked === "about") {
+      if (whichClicked === "about" && numClick === 1) {
         setWhichClicked2(whichClicked);
         tl22.to(["#aboutAfterClick"], {
           display: "block",
           opacity: 1,
           duration: 1,
           y: -380
-        }).to(["#tech2", "#projects2"],{
+        }).to(["#tech2", "#projects2","#home"],{
           display: "block",
           opacity: 1,
           duration: 1,
@@ -286,7 +380,7 @@ export default function Home() {
         (whichClicked != "about" && whichClicked2 === "about") ||
         (whichClicked != "about2" && whichClicked2 === "about2")
       ) {
-        tl22.to(["#aboutAfterClick", "#tech2", "#projects2"], {
+        tl22.to(["#aboutAfterClick", "#tech2", "#projects2","#home"], {
           display: "none",
           opacity: 0,
           duration: 1,
@@ -294,14 +388,14 @@ export default function Home() {
         });
       }
 
-      if (whichClicked === "tech") {
+      if (whichClicked === "tech" && numClick === 1) {
         setWhichClicked2(whichClicked);
         tl22.to(["#techAfterClick"], {
           display: "block",
           opacity: 1,
           duration: 1,
           y: -380
-        }).to(["#about2", "#projects2"],{
+        }).to(["#about2", "#projects2","#home"],{
           display: "block",
           opacity: 1,
           duration: 1,
@@ -311,7 +405,7 @@ export default function Home() {
         (whichClicked != "tech" && whichClicked2 === "tech") ||
         (whichClicked != "tech2" && whichClicked2 === "tech2")
       ) {
-        tl22.to(["#techAfterClick", "#about2", "#projects2"], {
+        tl22.to(["#techAfterClick", "#about2", "#projects2","#home"], {
           display: "none",
           opacity: 0,
           duration: 1,
@@ -319,9 +413,20 @@ export default function Home() {
         });
       }
 
+      if (
+        whichClicked != "home" && whichClicked2 === "home"
+      ) {
+        tl22.to(["#name", "#desc", "#me", "#buttns","#socialmedia"], {
+          opacity: 0,
+          duration: 1,
+          display: "none",
+          onComplete: startAnother,
+        });
+      }
+
       if (whichClicked === "projects") {
         setWhichClicked2(whichClicked);
-        tl22.to(["#projectsAfterClick", "#about2", "#tech2"], {
+        tl22.to(["#projectsAfterClick", "#about2", "#tech2","#home"], {
           display: "block",
           opacity: 1,
           duration: 1,
@@ -331,7 +436,7 @@ export default function Home() {
         (whichClicked != "projects" && whichClicked2 === "projects") ||
         (whichClicked != "projects2" && whichClicked2 === "projects2")
       ) {
-        tl22.to(["#projectsAfterClick", "#about2", "#tech2"], {
+        tl22.to(["#projectsAfterClick", "#about2", "#tech2","#home"], {
           display: "none",
           opacity: 0,
           duration: 1,
@@ -364,10 +469,10 @@ export default function Home() {
           display: "block",
         })
         .to(["#name", "#desc", "#me"], {
-          y: -30,
+          y: -20,
           delay: 0.5,
         })
-        .to("#buttns", {
+        .to(["#buttns","#socialmedia"], {
           opacity: 1,
           display: "flex",
         });
@@ -380,7 +485,7 @@ export default function Home() {
     let ctx33 = gsap.context(() => {
       var tl33 = gsap.timeline();
       if (clicked && numClick === 1) {
-        tl33.to(["#name", "#desc", "#me", "#buttns"], {
+        tl33.to(["#name", "#desc", "#me", "#buttns","#socialmedia"], {
           opacity: 0,
           duration: 1,
           display: "none",
@@ -395,7 +500,7 @@ export default function Home() {
             opacity: 1,
             duration: 1,
             y: -330
-          }).to(["#tech2", "#projects2"],{
+          }).to(["#tech2", "#projects2","#home"],{
             display: "block",
             opacity: 1,
             duration: 1,
@@ -408,8 +513,22 @@ export default function Home() {
             opacity: 1,
             duration: 1,
             y: -350
-          }).to(["#about", "#projects2"],{
+          }).to(["#about", "#projects2","#home"],{
             display: "block",
+            opacity: 1,
+            duration: 1,
+          })
+        }
+
+        if (whichClicked === "home") {
+          setWhichClicked2(whichClicked);
+          tl33.to(["#name","#desc","#me"], {
+            display: "block",
+            opacity: 1,
+            duration: 1,
+           // y: -80
+          }).to(["#buttns","#socialmedia"],{
+            display: "flex",
             opacity: 1,
             duration: 1,
           })
@@ -417,21 +536,49 @@ export default function Home() {
 
         if (whichClicked === "projects2") {
           setWhichClicked2(whichClicked);
-          tl33.to(["#projectsAfterClick", "#about2", "#tech2"], {
+          tl33.to(["#projectsAfterClick", "#about2", "#tech2","#home"], {
             display: "block",
             opacity: 1,
             duration: 1,
           });
         }
+
+        if (whichClicked === "tech" && numClick != 1) {
+          setWhichClicked2(whichClicked);
+          tl33.to(["#techAfterClick"], {
+            display: "block",
+            opacity: 1,
+            duration: 1,
+            y: -350
+          }).to(["#about", "#projects2","#home"],{
+            display: "block",
+            opacity: 1,
+            duration: 1,
+          })
+        }
+
+        if (whichClicked === "about" && numClick != 1) {
+          setWhichClicked2(whichClicked);
+          tl33.to(["#aboutAfterClick"], {
+            display: "block",
+            opacity: 1,
+            duration: 1,
+            y: -330
+          }).to(["#tech2", "#projects2","#home"],{
+            display: "block",
+            opacity: 1,
+            duration: 1,
+          })
+        }
       }
-      if (whichClicked === "about") {
+      if (whichClicked === "about" && numClick === 1) {
         setWhichClicked2(whichClicked);
         tl33.to(["#aboutAfterClick"], {
           display: "block",
           opacity: 1,
           duration: 1,
           y: -330
-        }).to(["#tech2", "#projects2"],{
+        }).to(["#tech2", "#projects2","#home"],{
           display: "block",
           opacity: 1,
           duration: 1,
@@ -441,7 +588,7 @@ export default function Home() {
         (whichClicked != "about" && whichClicked2 === "about") ||
         (whichClicked != "about2" && whichClicked2 === "about2")
       ) {
-        tl33.to(["#aboutAfterClick", "#tech2", "#projects2"], {
+        tl33.to(["#aboutAfterClick", "#tech2", "#projects2","#home"], {
           display: "none",
           opacity: 0,
           duration: 1,
@@ -449,14 +596,14 @@ export default function Home() {
         });
       }
 
-      if (whichClicked === "tech") {
+      if (whichClicked === "tech" && numClick ===1) {
         setWhichClicked2(whichClicked);
         tl33.to(["#techAfterClick"], {
           display: "block",
           opacity: 1,
           duration: 1,
           y: -350
-        }).to(["#about", "#projects2"],{
+        }).to(["#about", "#projects2","#home"],{
           display: "block",
           opacity: 1,
           duration: 1,
@@ -466,7 +613,7 @@ export default function Home() {
         (whichClicked != "tech" && whichClicked2 === "tech") ||
         (whichClicked != "tech2" && whichClicked2 === "tech2")
       ) {
-        tl33.to(["#techAfterClick", "#about2", "#projects2"], {
+        tl33.to(["#techAfterClick", "#about2", "#projects2","#home"], {
           display: "none",
           opacity: 0,
           duration: 1,
@@ -474,9 +621,20 @@ export default function Home() {
         });
       }
 
+      if (
+        whichClicked != "home" && whichClicked2 === "home"
+      ) {
+        tl33.to(["#name", "#desc", "#me", "#buttns","#socialmedia"], {
+          opacity: 0,
+          duration: 1,
+          display: "none",
+          onComplete: startAnother,
+        });
+      }
+
       if (whichClicked === "projects") {
         setWhichClicked2(whichClicked);
-        tl33.to(["#projectsAfterClick", "#about2", "#tech2"], {
+        tl33.to(["#projectsAfterClick", "#about2", "#tech2","#home"], {
           display: "block",
           opacity: 1,
           duration: 1,
@@ -486,7 +644,7 @@ export default function Home() {
         (whichClicked != "projects" && whichClicked2 === "projects") ||
         (whichClicked != "projects2" && whichClicked2 === "projects2")
       ) {
-        tl33.to(["#projectsAfterClick", "#about2", "#tech2"], {
+        tl33.to(["#projectsAfterClick", "#about2", "#tech2","#home"], {
           display: "none",
           opacity: 0,
           duration: 1,
@@ -522,7 +680,7 @@ export default function Home() {
           y: -30,
           delay: 0.5,
         })
-        .to("#buttns", {
+        .to(["#buttns","#socialmedia"], {
           opacity: 1,
           display: "flex",
         });
@@ -535,7 +693,7 @@ export default function Home() {
     let ctx44 = gsap.context(() => {
       var tl44 = gsap.timeline();
       if (clicked && numClick === 1) {
-        tl44.to(["#name", "#desc", "#me", "#buttns"], {
+        tl44.to(["#name", "#desc", "#me", "#buttns","#socialmedia"], {
           opacity: 0,
           duration: 1,
           display: "none",
@@ -550,7 +708,7 @@ export default function Home() {
             opacity: 1,
             duration: 1,
             y: -275
-          }).to(["#tech2", "#projects2"],{
+          }).to(["#tech2", "#projects2","#home"],{
             display: "block",
             opacity: 1,
             duration: 1,
@@ -563,8 +721,22 @@ export default function Home() {
             opacity: 1,
             duration: 1,
             y: -270
-          }).to(["#about2", "#projects2"],{
+          }).to(["#about2", "#projects2","#home"],{
             display: "block",
+            opacity: 1,
+            duration: 1,
+          })
+        }
+
+        if (whichClicked === "home") {
+          setWhichClicked2(whichClicked);
+          tl44.to(["#name","#desc","#me"], {
+            display: "block",
+            opacity: 1,
+            duration: 1,
+           // y: -80
+          }).to(["#buttns","#socialmedia"],{
+            display: "flex",
             opacity: 1,
             duration: 1,
           })
@@ -572,21 +744,49 @@ export default function Home() {
 
         if (whichClicked === "projects2") {
           setWhichClicked2(whichClicked);
-          tl44.to(["#projectsAfterClick", "#about2", "#tech2"], {
+          tl44.to(["#projectsAfterClick", "#about2", "#tech2","#home"], {
             display: "block",
             opacity: 1,
             duration: 1,
           });
         }
+
+        if (whichClicked === "tech" && numClick != 1) {
+          setWhichClicked2(whichClicked);
+          tl44.to(["#techAfterClick"], {
+            display: "block",
+            opacity: 1,
+            duration: 1,
+            y: -270
+          }).to(["#about2", "#projects2","#home"],{
+            display: "block",
+            opacity: 1,
+            duration: 1,
+          })
+        }
+
+        if (whichClicked === "about" && numClick != 1) {
+          setWhichClicked2(whichClicked);
+          tl44.to(["#aboutAfterClick"], {
+            display: "block",
+            opacity: 1,
+            duration: 1,
+            y: -275
+          }).to(["#tech2", "#projects2","#home"],{
+            display: "block",
+            opacity: 1,
+            duration: 1,
+          })
+        }
       }
-      if (whichClicked === "about") {
+      if (whichClicked === "about" && numClick === 1) {
         setWhichClicked2(whichClicked);
         tl44.to(["#aboutAfterClick"], {
           display: "block",
           opacity: 1,
           duration: 1,
           y: -275
-        }).to(["#tech2", "#projects2"],{
+        }).to(["#tech2", "#projects2","#home"],{
           display: "block",
           opacity: 1,
           duration: 1,
@@ -596,7 +796,7 @@ export default function Home() {
         (whichClicked != "about" && whichClicked2 === "about") ||
         (whichClicked != "about2" && whichClicked2 === "about2")
       ) {
-        tl44.to(["#aboutAfterClick", "#tech2", "#projects2"], {
+        tl44.to(["#aboutAfterClick", "#tech2", "#projects2","#home"], {
           display: "none",
           opacity: 0,
           duration: 1,
@@ -604,14 +804,14 @@ export default function Home() {
         });
       }
 
-      if (whichClicked === "tech") {
+      if (whichClicked === "tech" && numClick ===1) {
         setWhichClicked2(whichClicked);
         tl44.to(["#techAfterClick"], {
           display: "block",
           opacity: 1,
           duration: 1,
           y: -270
-        }).to(["#about2", "#projects2"],{
+        }).to(["#about2", "#projects2","#home"],{
           display: "block",
           opacity: 1,
           duration: 1,
@@ -621,7 +821,7 @@ export default function Home() {
         (whichClicked != "tech" && whichClicked2 === "tech") ||
         (whichClicked != "tech2" && whichClicked2 === "tech2")
       ) {
-        tl44.to(["#techAfterClick", "#about2", "#projects2"], {
+        tl44.to(["#techAfterClick", "#about2", "#projects2","#home"], {
           display: "none",
           opacity: 0,
           duration: 1,
@@ -629,9 +829,20 @@ export default function Home() {
         });
       }
 
+      if (
+        whichClicked != "home" && whichClicked2 === "home"
+      ) {
+        tl44.to(["#name", "#desc", "#me", "#buttns","#socialmedia"], {
+          opacity: 0,
+          duration: 1,
+          display: "none",
+          onComplete: startAnother,
+        });
+      }
+
       if (whichClicked === "projects") {
         setWhichClicked2(whichClicked);
-        tl44.to(["#projectsAfterClick", "#about2", "#tech2"], {
+        tl44.to(["#projectsAfterClick", "#about2", "#tech2","#home"], {
           display: "block",
           opacity: 1,
           duration: 1,
@@ -641,7 +852,7 @@ export default function Home() {
         (whichClicked != "projects" && whichClicked2 === "projects") ||
         (whichClicked != "projects2" && whichClicked2 === "projects2")
       ) {
-        tl44.to(["#projectsAfterClick", "#about2", "#tech2"], {
+        tl44.to(["#projectsAfterClick", "#about2", "#tech2","#home"], {
           display: "none",
           opacity: 0,
           duration: 1,
@@ -677,7 +888,7 @@ export default function Home() {
           y: -60,
           delay: 0.5,
         })
-        .to("#buttns", {
+        .to(["#buttns","#socialmedia"], {
           opacity: 1,
           display: "flex",
         });
@@ -690,7 +901,7 @@ export default function Home() {
     let ctx6 = gsap.context(() => {
       var tl6 = gsap.timeline();
       if (clicked && numClick === 1) {
-        tl6.to(["#name", "#desc", "#me", "#buttns"], {
+        tl6.to(["#name", "#desc", "#me", "#buttns","#socialmedia"], {
           opacity: 0,
           duration: 1,
           display: "none",
@@ -740,8 +951,8 @@ export default function Home() {
             display: "block",
             opacity: 1,
             duration: 1,
-            y: -80
-          }).to("#buttns",{
+           // y: -80
+          }).to(["#buttns","#socialmedia"],{
             display: "flex",
             opacity: 1,
             duration: 1,
@@ -782,7 +993,7 @@ export default function Home() {
           display: "block",
           opacity: 1,
           duration: 1,
-          y: -80
+          y: -80,
         }).to(["#tech2", "#projects2","#home"],{
           display: "block",
           opacity: 1,
@@ -793,7 +1004,7 @@ export default function Home() {
       if (
         whichClicked != "home" && whichClicked2 === "home"
       ) {
-        tl6.to(["#name", "#desc", "#me", "#buttns"], {
+        tl6.to(["#name", "#desc", "#me", "#buttns","#socialmedia"], {
           opacity: 0,
           duration: 1,
           display: "none",
@@ -894,6 +1105,8 @@ export default function Home() {
             aboutBtnsMt={"80px"}
             techImages={"50px"}
             techMtMb={"20px"}
+            socialMediaSize={"40px"}
+            socialMediaMt={"40px"}
             click={handleClicked}
             whichOne={handleWhichONe}
           />
@@ -921,6 +1134,8 @@ export default function Home() {
             aboutBtnsMt={"80px"}
             techImages={"40px"}
             techMtMb={"20px"}
+            socialMediaSize={"40px"}
+            socialMediaMt={"20px"}
             click={handleClicked}
             whichOne={handleWhichONe}
           />
@@ -949,6 +1164,8 @@ export default function Home() {
             aboutBtnsMt={"25px"}
             techImages={"30px"}
             techMtMb={"20px"}
+            socialMediaSize={"40px"}
+            socialMediaMt={"35px"}
             click={handleClicked}
             whichOne={handleWhichONe}
           />
@@ -979,6 +1196,8 @@ export default function Home() {
             aboutBtnsMt={"20px"}
             techImages={"25px"}
             techMtMb={"5px"}
+            socialMediaSize={"30px"}
+            socialMediaMt={"18px"}
             click={handleClicked}
             whichOne={handleWhichONe}
           />
