@@ -9,6 +9,8 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import "../../../styles/phoneCard.css"
+import Link from "next/link";
 
 export default function Phone(props) {
   const [click, setClick] = useState(false);
@@ -408,35 +410,54 @@ export default function Phone(props) {
             justifyContent: "center",
             alignItems: "center",
             flexDirection: "column",
-            marginBottom:"50px"
           }}
         >
-          <h1>Not yet ...</h1>
+        <Link href={"https://gip-lemon.vercel.app/"} target="_blank" style={{all:"unset"}}>
+                      <div className="card">
+    <div className="card-image"><img src="gipecomm.png" className="projectImg"></img></div>
+    <div className="category"> Ecommerce website </div>
+    <div className="heading"> Built with NextJs and MongoDb
+    </div>
+</div>
+</Link>
+<Link href={"https://ghack24.gdgalgiers.com/"} target="_blank" style={{all:"unset"}}>
+        <div className="card">
+    <div className="card-image"><img src="ghack.png" className="projectImg"></img></div>
+    <div className="category"> Ghack hackathon website </div>
+    <div className="heading"> Built with NextJs and pure css animations
+    </div>
+</div>
+</Link>
+          {/* <h1>Not yet ...</h1>
           <h1>Visit my GitHub for</h1>
-          <h1>more informations</h1>
+          <h1>more informations</h1> */}
         </div>
-        <div style={{display:"flex",justifyContent:"center",alignItems:"center",flexDirection:"column"}}>
+        <div style={{marginTop:"15px"}}>
+        <div style={{display:"flex",justifyContent:"center",alignItems:"center",marginBottom:"15px"}}>
         <button
           id="about2"
-          style={{ all: "unset", marginBottom: "15px" }}
+          style={{ all: "unset", marginRight:"5px"}}
           onClick={handleAbout}
         >
           <InfoOutlinedIcon></InfoOutlinedIcon> About me
         </button>
         <button
           id="tech2"
-          style={{ all: "unset", marginBottom: "15px",marginTop:"15px" }}
+          style={{ all: "unset",marginLeft:"10px"}}
           onClick={handleAbout}
         >
           <CodeOutlinedIcon></CodeOutlinedIcon> Technologies
         </button>
+        </div>
+        <div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
         <button
           id="home"
-          style={{ all: "unset", marginTop: "15px" }}
+          style={{ all: "unset"}}
           onClick={handleAbout}
         >
           <HomeIcon></HomeIcon> Home
         </button>
+        </div>
         </div>
       </div>
     </>

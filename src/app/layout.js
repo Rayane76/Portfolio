@@ -10,7 +10,7 @@ const open = Open_Sans({ subsets: ['latin'] })
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={open.className} style={{margin:"0"}}>{children}</body>
+      <body className={open.className} style={{margin:"0",overflowY:"hidden"}}>{children}</body>
     </html>
   )
 }

@@ -108,11 +108,16 @@ export default function Home() {
 
         if (whichClicked === "projects2") {
           setWhichClicked2(whichClicked);
-          tl11.to(["#projectsAfterClick", "#about2", "#tech2","#home"], {
+          tl11.to(["#projectsAfterClick"], {
             display: "block",
             opacity: 1,
             duration: 1,
-          });
+            y: -50,
+          }).to(["#about2", "#tech2","#home"],{
+            display: "block",
+            opacity: 1,
+            duration: 1,
+          })
         }
 
         if (whichClicked === "tech" && numClick != 1) {
@@ -219,11 +224,16 @@ export default function Home() {
 
       if (whichClicked === "projects") {
         setWhichClicked2(whichClicked);
-        tl11.to(["#projectsAfterClick", "#about2", "#tech2","#home"], {
+        tl11.to(["#projectsAfterClick"], {
           display: "block",
           opacity: 1,
           duration: 1,
-        });
+          y: -50,
+        }).to(["#about2", "#tech2","#home"],{
+          display: "block",
+          opacity: 1,
+          duration: 1,
+        })
       }
       if (
         (whichClicked != "projects" && whichClicked2 === "projects") ||
@@ -314,11 +324,16 @@ export default function Home() {
 
         if (whichClicked === "projects2") {
           setWhichClicked2(whichClicked);
-          tl22.to(["#projectsAfterClick", "#about2", "#tech2","#home"], {
+          tl22.to(["#projectsAfterClick"], {
             display: "block",
             opacity: 1,
             duration: 1,
-          });
+            y: -70,
+          }).to(["#about2", "#tech2","#home"],{
+            display: "block",
+            opacity: 1,
+            duration: 1,
+          })
         }
 
         if (whichClicked === "home") {
@@ -426,11 +441,16 @@ export default function Home() {
 
       if (whichClicked === "projects") {
         setWhichClicked2(whichClicked);
-        tl22.to(["#projectsAfterClick", "#about2", "#tech2","#home"], {
+        tl22.to(["#projectsAfterClick"], {
           display: "block",
           opacity: 1,
           duration: 1,
-        });
+          y: -70,
+        }).to(["#about2", "#tech2","#home"],{
+          display: "block",
+          opacity: 1,
+          duration: 1,
+        })
       }
       if (
         (whichClicked != "projects" && whichClicked2 === "projects") ||
@@ -513,7 +533,7 @@ export default function Home() {
             opacity: 1,
             duration: 1,
             y: -350
-          }).to(["#about", "#projects2","#home"],{
+          }).to(["#about2", "#projects2","#home"],{
             display: "block",
             opacity: 1,
             duration: 1,
@@ -536,11 +556,16 @@ export default function Home() {
 
         if (whichClicked === "projects2") {
           setWhichClicked2(whichClicked);
-          tl33.to(["#projectsAfterClick", "#about2", "#tech2","#home"], {
+          tl33.to(["#projectsAfterClick"], {
             display: "block",
             opacity: 1,
             duration: 1,
-          });
+            y: -50,
+          }).to(["#about2", "#tech2","#home"],{
+            display: "block",
+            opacity: 1,
+            duration: 1,
+          })
         }
 
         if (whichClicked === "tech" && numClick != 1) {
@@ -634,11 +659,16 @@ export default function Home() {
 
       if (whichClicked === "projects") {
         setWhichClicked2(whichClicked);
-        tl33.to(["#projectsAfterClick", "#about2", "#tech2","#home"], {
+        tl33.to(["#projectsAfterClick"], {
           display: "block",
           opacity: 1,
           duration: 1,
-        });
+          y: -50,
+        }).to(["#about2", "#tech2","#home"],{
+          display: "block",
+          opacity: 1,
+          duration: 1,
+        })
       }
       if (
         (whichClicked != "projects" && whichClicked2 === "projects") ||
@@ -744,11 +774,16 @@ export default function Home() {
 
         if (whichClicked === "projects2") {
           setWhichClicked2(whichClicked);
-          tl44.to(["#projectsAfterClick", "#about2", "#tech2","#home"], {
+          tl44.to(["#projectsAfterClick"], {
             display: "block",
             opacity: 1,
             duration: 1,
-          });
+            y: -50,
+          }).to(["#about2", "#tech2","#home"],{
+            display: "block",
+            opacity: 1,
+            duration: 1,
+          })
         }
 
         if (whichClicked === "tech" && numClick != 1) {
@@ -842,11 +877,16 @@ export default function Home() {
 
       if (whichClicked === "projects") {
         setWhichClicked2(whichClicked);
-        tl44.to(["#projectsAfterClick", "#about2", "#tech2","#home"], {
+        tl44.to(["#projectsAfterClick"], {
           display: "block",
           opacity: 1,
           duration: 1,
-        });
+          y: -50,
+        }).to(["#about2", "#tech2","#home"],{
+          display: "block",
+          opacity: 1,
+          duration: 1,
+        })
       }
       if (
         (whichClicked != "projects" && whichClicked2 === "projects") ||
@@ -938,11 +978,16 @@ export default function Home() {
 
         if (whichClicked === "projects2") {
           setWhichClicked2(whichClicked);
-          tl6.to(["#projectsAfterClick", "#about2", "#tech2","#home"], {
+          tl6.to(["#projectsAfterClick"], {
             display: "block",
             opacity: 1,
             duration: 1,
-          });
+            y: -100,
+          }).to(["#about2", "#tech2","#home"],{
+            display: "block",
+            opacity: 1,
+            duration: 1,
+          })
         }
 
         if (whichClicked === "home") {
@@ -1051,11 +1096,16 @@ export default function Home() {
 
       if (whichClicked === "projects") {
         setWhichClicked2(whichClicked);
-        tl6.to(["#projectsAfterClick", "#about2", "#tech2","#home"], {
+        tl6.to(["#projectsAfterClick"], {
           display: "block",
           opacity: 1,
           duration: 1,
-        });
+          y: -100,
+        }).to(["#about2", "#tech2","#home"],{
+          display: "block",
+          opacity: 1,
+          duration: 1,
+        })
       }
       if (
         (whichClicked != "projects" && whichClicked2 === "projects") ||
